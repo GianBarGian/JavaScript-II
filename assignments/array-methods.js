@@ -88,6 +88,8 @@ runners.forEach(runner => {
 // Problem 2
 // Let's do the opposite thing but this time let's use filter instead. This way we can have the full obj data of our runners.
 let wellPayingRunners = runners.filter(runner => runner.donation >= 100)
-// Problem 3
-// Let's find the medium donation for company.
-let mediumDonation = runners.reduce((acc, curr) => (acc + curr.donation), 0) / runners.length; 
+// Problem 3 
+// Sort the runners for their donation quantity and add a new key:value with the number on the shirt for the run based on this order(highest to lowest), then sort the array in original order. (Remeber that shirts strart from 1, not 0)
+runners.sort((a, b) => b.donation - a.donation);
+runners.forEach((runner, i) => runner.shirt_number = i + 1);
+runners.sort((a, b) => a.id - b.id);
