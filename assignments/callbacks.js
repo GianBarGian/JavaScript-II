@@ -53,9 +53,19 @@ function contains(item, list) {
 }
 
 /* STRETCH PROBLEM */
-
+// removeDuplicates removes all duplicate values from the given array.
+// Pass the duplicate free array to the callback function.
+// Do not mutate the original array.
 function removeDuplicates(array, cb) {
-  // removeDuplicates removes all duplicate values from the given array.
-  // Pass the duplicate free array to the callback function.
-  // Do not mutate the original array.
+  let unique = [];
+  array.forEach(item => {
+    if (!unique.includes(item)) {
+      unique.push(item);
+    }
+  });
+  return cb(unique);
+}
+
+function consoleLogCb (arr) {
+  console.log(arr);
 }
