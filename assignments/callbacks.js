@@ -22,31 +22,50 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 */
 
 
-function getLength(arr, cb) {
-  // getLength passes the length of the array into the callback.
+function callback1Par(arr, cb) {
+  return cb(arr);
+}
+// getLength passes the length of the array into the callback.
+function getLength(array) {
+  console.log(array.length);
+}
+// last passes the last item of the array into the callback.
+function last(array) {
+  console.log(array[array.length - 1]);
 }
 
-function last(arr, cb) {
-  // last passes the last item of the array into the callback.
-}
 
-function sumNums(x, y, cb) {
-  // sumNums adds two numbers (x, y) and passes the result to the callback.
+function callback2Par(x, y, cb) {
+  return cb(x, y);
 }
-
-function multiplyNums(x, y, cb) {
-  // multiplyNums multiplies two numbers and passes the result to the callback.
+// sumNums adds two numbers (x, y) and passes the result to the callback.
+function sumNums(x, y) {
+  console.log(x + y);
 }
-
-function contains(item, list, cb) {
-  // contains checks if an item is present inside of the given array/list.
-  // Pass true to the callback if it is, otherwise pass false.
+// multiplyNums multiplies two numbers and passes the result to the callback.
+function multiplyNums(x, y) {
+  console.log(x * y);
+}
+// contains checks if an item is present inside of the given array/list.
+// Pass true to the callback if it is, otherwise pass false.
+function contains(item, list) {
+  console.log(list.includes(item));
 }
 
 /* STRETCH PROBLEM */
-
+// removeDuplicates removes all duplicate values from the given array.
+// Pass the duplicate free array to the callback function.
+// Do not mutate the original array.
 function removeDuplicates(array, cb) {
-  // removeDuplicates removes all duplicate values from the given array.
-  // Pass the duplicate free array to the callback function.
-  // Do not mutate the original array.
+  let unique = [];
+  array.forEach(item => {
+    if (!unique.includes(item)) {
+      unique.push(item);
+    }
+  });
+  return cb(unique);
+}
+
+function consoleLogCb (arr) {
+  console.log(arr);
 }
